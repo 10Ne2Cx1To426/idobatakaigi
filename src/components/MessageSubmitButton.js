@@ -4,13 +4,14 @@ import React from 'react';
 
 import { pushMessage } from '../firebase';
 
-const MessageSubmitButton = ({ name, setText, text}) => {
+const MessageSubmitButton = ({ name, setText, text, inputEl }) => {
   return (
     <IconButton
       disabled={text === ''}
       onClick={() => {
         pushMessage({ name, text });
         setText('');
+        inputEl.current.focus();
       }}
     >
       <SendIcon />
